@@ -24,6 +24,16 @@ const LongForm = () => {
           ...state,
           term: !state.term,
         };
+      case "INCREMENT":
+        return {
+          ...state,
+          quantity: state.quantity + action.payload.count,
+        };
+      case "DECREMENT":
+        return {
+          ...state,
+          quantity: state.quantity - action.payload.count,
+        };
       default:
         return state;
     }
@@ -166,13 +176,23 @@ const LongForm = () => {
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-3">Number of PCs</label>
           <div className="flex justify-between items-center gap-2 ">
-            <button className="bg-indigo-500 text-lg text-white rounded h-10 w-10 ">
+            <button
+              onClick={() =>
+                dispatch({ type: "DECREMENT", payload: { count: 1 } })
+              }
+              className="bg-indigo-500 text-lg text-white rounded h-10 w-10 "
+            >
               -
             </button>
             <div className="border flex-1 flex justify-center items-center h-10 rounded-md border-gray-300">
-              <span className="text-lg">0</span>
+              <span className="text-lg">{state.quantity}</span>
             </div>
-            <button className="bg-indigo-500 text-lg text-white rounded h-10 w-10">
+            <button
+              onClick={() =>
+                dispatch({ type: "INCREMENT", payload: { count: 1 } })
+              }
+              className="bg-indigo-500 text-lg text-white rounded h-10 w-10"
+            >
               +
             </button>
           </div>
