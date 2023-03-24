@@ -13,7 +13,7 @@ const Counter = () => {
       return state - action.payload.count;
     }
   };
-  //how to call useReducer hook
+  //how to call useReducer hook test
   const [state, dispatch] = useReducer(reducer, initalState);
   return (
     <div className="flex justify-center items-center min-h-screen">
