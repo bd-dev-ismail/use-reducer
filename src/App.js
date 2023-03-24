@@ -3,9 +3,9 @@ import LongForm from "./pages/LongForm";
 import ShortForm from "./pages/ShortForm";
 
 function App() {
-  // return <LongForm />;
+  return <LongForm />;
   // return <ShortForm/>;
-  return <Counter/>
+  // return <Counter/>
 }
 
 export default App;
